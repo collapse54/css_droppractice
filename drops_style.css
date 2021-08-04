@@ -1,0 +1,65 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body    
+{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-height: 100vh;
+    background: #edeeed;
+}
+.drops
+{
+    position:relative;
+}
+/*父水滴*/
+.drop
+{
+    position:absolute;
+    height:150px;
+    width: 150px;
+    background:transparent;
+    border-radius: 57% 43% 37% 63%/ 45% 52% 48% 55%;
+    box-shadow: inset 10px 10px 10px rgba(0,0,0,0.05),
+                15px 25px 20px rgba(0,0,0,0.1),
+                15px 25px 20px rgba(0,0,0,0.05),
+                inset -10px -10px 35px rgba(255,255,255,0.9);
+}
+/*水滴上的反光*/
+.drop::before
+{
+    content:'';
+    position: absolute;
+    top:25px;
+    left:35px;
+    background: white;
+    width:20px;
+    height: 20px;
+    border-radius: 45% 33% 52% 69%/ 44% 44% 57% 55%;
+}
+.drop::after
+{
+    content:'';
+    position: absolute;
+    top:25px;
+    left:65px;
+    background: white;
+    width: 9px;
+    height: 8px;
+    border-radius: 50%;
+}
+/*子水滴* :nth-child(指定第幾個(第2-3個)作為子水滴並變形)*/
+.drop:nth-child(2)
+{
+    transform: scale(0.5) translate(-200px,180px);
+    border-radius: 64% 36% 42% 58%/ 42% 37% 63% 58%;
+}
+.drop:nth-child(3)
+{
+    transform: scale(0.5) translate(320px,210px);
+    border-radius: 55% 44% 55% 58%/ 42% 39% 53% 58%;
+}
